@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- Torch/flame icon -->
+  <g transform="translate(4, 4)">
+    <!-- Outer shield shape -->
+    <path d="M26 2 L50 2 L50 38 Q50 52 26 58 Q2 52 2 38 L2 2 Z" fill="#C41230" opacity="0.15" stroke="#C41230" stroke-width="1.5"/>
+    <!-- BMS text in shield -->
+    <text x="26" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#C41230">BMS</text>
+    <!-- Small flame at top -->
+    <path d="M26 6 Q28 2 30 6 Q26 4 22 6 Q24 2 26 6Z" fill="#E0A96D"/>
+  </g>
+
+  <!-- BMSIT text -->
+  <text x="62" y="26" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#C41230" letter-spacing="1">BMSIT</text>
+
+  <!-- Subtitle line -->
+  <text x="62" y="40" font-family="Arial, sans-serif" font-size="7.5" fill="#8A8A8A" letter-spacing="0.8">INSTITUTE OF TECHNOLOGY &amp; MANAGEMENT</text>
+
+  <!-- Thin divider line -->
+  <line x1="62" y1="44" x2="198" y2="44" stroke="#C41230" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Bangalore, India -->
+  <text x="62" y="53" font-family="Arial, sans-serif" font-size="6.5" fill="#E0A96D" letter-spacing="1">BANGALORE, INDIA</text>
+</svg>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { AnimatedContainer } from '../components/AnimatedContainer';
 import { KineticText } from '../components/KineticText';
+import { CampusExplorer3D } from '../components/CampusExplorer3D';
 import { User, BookOpen, Award, CheckCircle } from 'lucide-react';
 
 export function Profile() {
@@ -14,7 +15,6 @@ export function Profile() {
   };
 
   const progressPercentage = (student.creditsCompleted / student.creditsTotal) * 100;
-  // For SVG dasharray logic
   const circleRadius = 60;
   const circumference = 2 * Math.PI * circleRadius;
 
@@ -42,21 +42,13 @@ export function Profile() {
             <div className="relative w-40 h-40 shrink-0">
               <svg width="160" height="160" className="transform -rotate-90">
                 <circle 
-                  cx="80" 
-                  cy="80" 
-                  r={circleRadius} 
-                  stroke="currentColor" 
-                  strokeWidth="12" 
-                  fill="transparent" 
+                  cx="80" cy="80" r={circleRadius}
+                  stroke="currentColor" strokeWidth="12" fill="transparent"
                   className="text-bms-nearBlack" 
                 />
                 <motion.circle 
-                  cx="80" 
-                  cy="80" 
-                  r={circleRadius} 
-                  stroke="currentColor" 
-                  strokeWidth="12" 
-                  fill="transparent" 
+                  cx="80" cy="80" r={circleRadius}
+                  stroke="currentColor" strokeWidth="12" fill="transparent"
                   className="text-bms-crimson"
                   strokeLinecap="round"
                   initial={{ strokeDasharray: circumference, strokeDashoffset: circumference }}
@@ -88,8 +80,7 @@ export function Profile() {
               </div>
 
               <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                 className="mt-4 px-6 py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg text-sm font-medium transition-colors"
               >
                 View Transcript
@@ -101,7 +92,7 @@ export function Profile() {
 
       <KineticText text="Recent Milestones" className="text-3xl font-display text-white mb-8" />
       
-      <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-bms-crimson before:via-bms-warmGold before:to-transparent">
+      <div className="space-y-4 relative mb-20 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-bms-crimson before:via-bms-warmGold before:to-transparent">
         {[
           { title: "Completed Software Engineering Lab", date: "Oct 2026", icon: CheckCircle },
           { title: "Achieved Dean's List", date: "May 2026", icon: Award },
@@ -109,11 +100,9 @@ export function Profile() {
         ].map((milestone, i) => (
           <AnimatedContainer key={i} direction={i % 2 === 0 ? "right" : "left"} delay={0.2 + i * 0.1}>
             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-              
               <div className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-bms-warmGold bg-bms-nearBlack group-hover:bg-bms-warmGold text-bms-warmGold group-hover:text-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-lg transition-colors duration-300 z-10">
                 <milestone.icon size={18} />
               </div>
-              
               <motion.div 
                 whileHover={{ scale: 1.02 }}
                 className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-bms-surface p-6 rounded-2xl border border-white/5 shadow-lg group-hover:border-bms-warmGold/30 transition-colors duration-300"
@@ -123,11 +112,17 @@ export function Profile() {
                   <h4 className="text-lg font-display text-white leading-tight">{milestone.title}</h4>
                 </div>
               </motion.div>
-
             </div>
           </AnimatedContainer>
         ))}
       </div>
+
+      {/* 3D Campus Explorer */}
+      <AnimatedContainer direction="up" delay={0.1}>
+        <div className="border-t border-bms-border/30 pt-16">
+          <CampusExplorer3D />
+        </div>
+      </AnimatedContainer>
     </div>
   );
 }
